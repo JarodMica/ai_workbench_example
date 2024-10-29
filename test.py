@@ -1,7 +1,7 @@
 from pathlib import Path
-from F5_TTS.src.f5_tts.model import DiT, UNetT
-from F5_TTS.src.f5_tts.infer.utils_infer import load_vocoder, load_model
-from F5_TTS.src.f5_tts.infer.infer_cli import main_process
+from f5_tts_local.model import DiT, UNetT
+from f5_tts_local.infer.utils_infer import load_vocoder, load_model
+from f5_tts_local.infer.infer_cli import main_process
 
 vocos = load_vocoder(is_local=False)
 
@@ -9,11 +9,11 @@ model = "F5-TTS"
 model_cls = DiT
 model_config = dict(dim=1024, depth=22, heads=16, ff_mult=2, text_dim=512, conv_layers=4)
 checkpoint_file = "model_1200000.pt"
-vocab_file = "F5_TTS/src/f5_tts/infer/examples/vocab.txt"
+vocab_file = "f5_tts_local/infer/examples/vocab.txt"
 
 ema_model = load_model(model_cls, model_config, checkpoint_file, vocab_file)
 
-ref_audio = "F5_TTS/src/f5_tts/infer/examples/basic/basic_ref_en.wav"
+ref_audio = "f5_tts_local/infer/examples/basic/basic_ref_en.wav"
 ref_text = "Some call me nature, others call me mother nature."
 gen_text = "I don't really care what you call me. I've been a silent spectator, watching species evolve, empires rise and fall. But always remember, I am mighty and enduring."
 remove_silence=False
