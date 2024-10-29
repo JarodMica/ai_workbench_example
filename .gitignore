@@ -6,7 +6,7 @@
 # General ignores
 .DS_Store
 
-*.pt
+model_1200000.pt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
